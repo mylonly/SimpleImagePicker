@@ -1,0 +1,542 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD24FCAB1B3262F200B1A29F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCAA1B3262F200B1A29F /* main.m */; };
+		CD24FCAE1B3262F200B1A29F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCAD1B3262F200B1A29F /* AppDelegate.m */; };
+		CD24FCB11B3262F200B1A29F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCB01B3262F200B1A29F /* ViewController.m */; };
+		CD24FCB61B3262F200B1A29F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD24FCB51B3262F200B1A29F /* Images.xcassets */; };
+		CD24FCB91B3262F200B1A29F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD24FCB71B3262F200B1A29F /* LaunchScreen.xib */; };
+		CD24FCC51B3262F200B1A29F /* SimpleImagePickerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCC41B3262F200B1A29F /* SimpleImagePickerDemoTests.m */; };
+		CD24FCD11B32678500B1A29F /* SimpleImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCD01B32678500B1A29F /* SimpleImagePickerController.m */; };
+		CD24FCDE1B32AB1000B1A29F /* QBAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCD51B32AB1000B1A29F /* QBAlbumCell.m */; };
+		CD24FCDF1B32AB1000B1A29F /* QBAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCD71B32AB1000B1A29F /* QBAssetCell.m */; };
+		CD24FCE01B32AB1000B1A29F /* QBCheckmarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCD91B32AB1000B1A29F /* QBCheckmarkView.m */; };
+		CD24FCE11B32AB1000B1A29F /* QBVideoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCDB1B32AB1000B1A29F /* QBVideoIconView.m */; };
+		CD24FCE21B32AB1000B1A29F /* QBVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCDD1B32AB1000B1A29F /* QBVideoIndicatorView.m */; };
+		CD24FCE41B33F14000B1A29F /* 添加拍照@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD24FCE31B33F14000B1A29F /* 添加拍照@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CD24FCBF1B3262F200B1A29F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD24FC9B1B3262BE00B1A29F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD24FCA41B3262F200B1A29F;
+			remoteInfo = SimpleImagePickerDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CD24FCA51B3262F200B1A29F /* SimpleImagePickerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleImagePickerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD24FCA91B3262F200B1A29F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD24FCAA1B3262F200B1A29F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CD24FCAC1B3262F200B1A29F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CD24FCAD1B3262F200B1A29F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CD24FCAF1B3262F200B1A29F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CD24FCB01B3262F200B1A29F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CD24FCB51B3262F200B1A29F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CD24FCB81B3262F200B1A29F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		CD24FCBE1B3262F200B1A29F /* SimpleImagePickerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleImagePickerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD24FCC31B3262F200B1A29F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD24FCC41B3262F200B1A29F /* SimpleImagePickerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleImagePickerDemoTests.m; sourceTree = "<group>"; };
+		CD24FCCF1B32678500B1A29F /* SimpleImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleImagePickerController.h; sourceTree = "<group>"; };
+		CD24FCD01B32678500B1A29F /* SimpleImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleImagePickerController.m; sourceTree = "<group>"; };
+		CD24FCD41B32AB1000B1A29F /* QBAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAlbumCell.h; sourceTree = "<group>"; };
+		CD24FCD51B32AB1000B1A29F /* QBAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAlbumCell.m; sourceTree = "<group>"; };
+		CD24FCD61B32AB1000B1A29F /* QBAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAssetCell.h; sourceTree = "<group>"; };
+		CD24FCD71B32AB1000B1A29F /* QBAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAssetCell.m; sourceTree = "<group>"; };
+		CD24FCD81B32AB1000B1A29F /* QBCheckmarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBCheckmarkView.h; sourceTree = "<group>"; };
+		CD24FCD91B32AB1000B1A29F /* QBCheckmarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBCheckmarkView.m; sourceTree = "<group>"; };
+		CD24FCDA1B32AB1000B1A29F /* QBVideoIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBVideoIconView.h; sourceTree = "<group>"; };
+		CD24FCDB1B32AB1000B1A29F /* QBVideoIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIconView.m; sourceTree = "<group>"; };
+		CD24FCDC1B32AB1000B1A29F /* QBVideoIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBVideoIndicatorView.h; sourceTree = "<group>"; };
+		CD24FCDD1B32AB1000B1A29F /* QBVideoIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIndicatorView.m; sourceTree = "<group>"; };
+		CD24FCE31B33F14000B1A29F /* 添加拍照@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加拍照@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD24FCA21B3262F200B1A29F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD24FCBB1B3262F200B1A29F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD24FC9A1B3262BE00B1A29F = {
+			isa = PBXGroup;
+			children = (
+				CD24FCA71B3262F200B1A29F /* SimpleImagePickerDemo */,
+				CD24FCC11B3262F200B1A29F /* SimpleImagePickerDemoTests */,
+				CD24FCA61B3262F200B1A29F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD24FCA61B3262F200B1A29F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD24FCA51B3262F200B1A29F /* SimpleImagePickerDemo.app */,
+				CD24FCBE1B3262F200B1A29F /* SimpleImagePickerDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD24FCA71B3262F200B1A29F /* SimpleImagePickerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				CD24FCCD1B32634B00B1A29F /* SimpleImagePicker */,
+				CD24FCAC1B3262F200B1A29F /* AppDelegate.h */,
+				CD24FCAD1B3262F200B1A29F /* AppDelegate.m */,
+				CD24FCE31B33F14000B1A29F /* 添加拍照@2x.png */,
+				CD24FCAF1B3262F200B1A29F /* ViewController.h */,
+				CD24FCB01B3262F200B1A29F /* ViewController.m */,
+				CD24FCB51B3262F200B1A29F /* Images.xcassets */,
+				CD24FCB71B3262F200B1A29F /* LaunchScreen.xib */,
+				CD24FCA81B3262F200B1A29F /* Supporting Files */,
+			);
+			path = SimpleImagePickerDemo;
+			sourceTree = "<group>";
+		};
+		CD24FCA81B3262F200B1A29F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD24FCA91B3262F200B1A29F /* Info.plist */,
+				CD24FCAA1B3262F200B1A29F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD24FCC11B3262F200B1A29F /* SimpleImagePickerDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				CD24FCC41B3262F200B1A29F /* SimpleImagePickerDemoTests.m */,
+				CD24FCC21B3262F200B1A29F /* Supporting Files */,
+			);
+			path = SimpleImagePickerDemoTests;
+			sourceTree = "<group>";
+		};
+		CD24FCC21B3262F200B1A29F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD24FCC31B3262F200B1A29F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD24FCCD1B32634B00B1A29F /* SimpleImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				CD24FCD31B32AB0300B1A29F /* Views */,
+				CD24FCCF1B32678500B1A29F /* SimpleImagePickerController.h */,
+				CD24FCD01B32678500B1A29F /* SimpleImagePickerController.m */,
+			);
+			path = SimpleImagePicker;
+			sourceTree = SOURCE_ROOT;
+		};
+		CD24FCD31B32AB0300B1A29F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD24FCD41B32AB1000B1A29F /* QBAlbumCell.h */,
+				CD24FCD51B32AB1000B1A29F /* QBAlbumCell.m */,
+				CD24FCD61B32AB1000B1A29F /* QBAssetCell.h */,
+				CD24FCD71B32AB1000B1A29F /* QBAssetCell.m */,
+				CD24FCD81B32AB1000B1A29F /* QBCheckmarkView.h */,
+				CD24FCD91B32AB1000B1A29F /* QBCheckmarkView.m */,
+				CD24FCDA1B32AB1000B1A29F /* QBVideoIconView.h */,
+				CD24FCDB1B32AB1000B1A29F /* QBVideoIconView.m */,
+				CD24FCDC1B32AB1000B1A29F /* QBVideoIndicatorView.h */,
+				CD24FCDD1B32AB1000B1A29F /* QBVideoIndicatorView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD24FCA41B3262F200B1A29F /* SimpleImagePickerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD24FCC61B3262F200B1A29F /* Build configuration list for PBXNativeTarget "SimpleImagePickerDemo" */;
+			buildPhases = (
+				CD24FCA11B3262F200B1A29F /* Sources */,
+				CD24FCA21B3262F200B1A29F /* Frameworks */,
+				CD24FCA31B3262F200B1A29F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleImagePickerDemo;
+			productName = SimpleImagePickerDemo;
+			productReference = CD24FCA51B3262F200B1A29F /* SimpleImagePickerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CD24FCBD1B3262F200B1A29F /* SimpleImagePickerDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD24FCC91B3262F200B1A29F /* Build configuration list for PBXNativeTarget "SimpleImagePickerDemoTests" */;
+			buildPhases = (
+				CD24FCBA1B3262F200B1A29F /* Sources */,
+				CD24FCBB1B3262F200B1A29F /* Frameworks */,
+				CD24FCBC1B3262F200B1A29F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD24FCC01B3262F200B1A29F /* PBXTargetDependency */,
+			);
+			name = SimpleImagePickerDemoTests;
+			productName = SimpleImagePickerDemoTests;
+			productReference = CD24FCBE1B3262F200B1A29F /* SimpleImagePickerDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD24FC9B1B3262BE00B1A29F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				TargetAttributes = {
+					CD24FCA41B3262F200B1A29F = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					CD24FCBD1B3262F200B1A29F = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = CD24FCA41B3262F200B1A29F;
+					};
+				};
+			};
+			buildConfigurationList = CD24FC9E1B3262BE00B1A29F /* Build configuration list for PBXProject "SimpleImagePicker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CD24FC9A1B3262BE00B1A29F;
+			productRefGroup = CD24FCA61B3262F200B1A29F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD24FCA41B3262F200B1A29F /* SimpleImagePickerDemo */,
+				CD24FCBD1B3262F200B1A29F /* SimpleImagePickerDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD24FCA31B3262F200B1A29F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD24FCE41B33F14000B1A29F /* 添加拍照@2x.png in Resources */,
+				CD24FCB91B3262F200B1A29F /* LaunchScreen.xib in Resources */,
+				CD24FCB61B3262F200B1A29F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD24FCBC1B3262F200B1A29F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD24FCA11B3262F200B1A29F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD24FCB11B3262F200B1A29F /* ViewController.m in Sources */,
+				CD24FCDE1B32AB1000B1A29F /* QBAlbumCell.m in Sources */,
+				CD24FCE11B32AB1000B1A29F /* QBVideoIconView.m in Sources */,
+				CD24FCE01B32AB1000B1A29F /* QBCheckmarkView.m in Sources */,
+				CD24FCAE1B3262F200B1A29F /* AppDelegate.m in Sources */,
+				CD24FCDF1B32AB1000B1A29F /* QBAssetCell.m in Sources */,
+				CD24FCAB1B3262F200B1A29F /* main.m in Sources */,
+				CD24FCE21B32AB1000B1A29F /* QBVideoIndicatorView.m in Sources */,
+				CD24FCD11B32678500B1A29F /* SimpleImagePickerController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD24FCBA1B3262F200B1A29F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD24FCC51B3262F200B1A29F /* SimpleImagePickerDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CD24FCC01B3262F200B1A29F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD24FCA41B3262F200B1A29F /* SimpleImagePickerDemo */;
+			targetProxy = CD24FCBF1B3262F200B1A29F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CD24FCB71B3262F200B1A29F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD24FCB81B3262F200B1A29F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CD24FC9F1B3262BE00B1A29F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Debug;
+		};
+		CD24FCA01B3262BE00B1A29F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Release;
+		};
+		CD24FCC71B3262F200B1A29F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = SimpleImagePickerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD24FCC81B3262F200B1A29F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = SimpleImagePickerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD24FCCA1B3262F200B1A29F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = SimpleImagePickerDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleImagePickerDemo.app/SimpleImagePickerDemo";
+			};
+			name = Debug;
+		};
+		CD24FCCB1B3262F200B1A29F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = SimpleImagePickerDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleImagePickerDemo.app/SimpleImagePickerDemo";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD24FC9E1B3262BE00B1A29F /* Build configuration list for PBXProject "SimpleImagePicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD24FC9F1B3262BE00B1A29F /* Debug */,
+				CD24FCA01B3262BE00B1A29F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD24FCC61B3262F200B1A29F /* Build configuration list for PBXNativeTarget "SimpleImagePickerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD24FCC71B3262F200B1A29F /* Debug */,
+				CD24FCC81B3262F200B1A29F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD24FCC91B3262F200B1A29F /* Build configuration list for PBXNativeTarget "SimpleImagePickerDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD24FCCA1B3262F200B1A29F /* Debug */,
+				CD24FCCB1B3262F200B1A29F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD24FC9B1B3262BE00B1A29F /* Project object */;
+}
