@@ -16,9 +16,10 @@
 
 
 @optional
-- (void)simpleImagePickerController:(SimpleImagePickerController*)imagePickerController didSelectAsset:(ALAsset*)asset;
 
 - (void)simpleImagePickerController:(SimpleImagePickerController *)imagePickerController didSelectAssets:(NSArray *)assets;
+
+- (void)selectCamera:(SimpleImagePickerController*)imagePickerController;
 
 - (UIView*)customFooterViewOfImagePicker:(SimpleImagePickerController*)imagePickerController;
 
@@ -43,6 +44,9 @@ typedef NS_ENUM(NSUInteger, SimpleImagePickerControllerFilterType)
 @property (nonatomic,strong) UIView* headerView;
 
 @property (nonatomic,strong) UIView* footView;
+
+
+@property (nonatomic,strong) NSMutableOrderedSet *selectedAssetURLs;
 
 @property (nonatomic, assign) NSUInteger minimumNumberOfSelection;
 @property (nonatomic, assign) NSUInteger maximumNumberOfSelection;

@@ -10,11 +10,10 @@
 
 @class QBVideoIndicatorView;
 
-@interface QBAssetCell : UICollectionViewCell
+@interface SimpleAssetCell : UICollectionViewCell
 
 
 @property (nonatomic,strong) UIImageView* imageView;
 
-@property (nonatomic, assign) BOOL showsOverlayViewWhenSelected;
 
 @end

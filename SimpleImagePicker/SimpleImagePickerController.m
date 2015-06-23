@@ -7,7 +7,9 @@
 //
 
 #import "SimpleImagePickerController.h"
-#import "QBAssetCell.h"
+#import "SimpleAssetCell.h"
+#import "SimpleCameraCell.h"
+#import "SimpleImagePreviewController.h"
 
 #ifndef SCREENWIDTH
 #define SCREENWIDTH  [[UIScreen mainScreen] bounds].size.width
@@ -26,11 +28,10 @@
 #endif
 
 
-@interface SimpleImagePickerController ()<UICollectionViewDelegateFlowLayout,UITableViewDataSource,UITableViewDelegate>
+@interface SimpleImagePickerController ()<UICollectionViewDelegateFlowLayout,UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     NSArray *m_groupTypes;
     ALAssetsLibrary *m_assetsLibrary;
-    NSMutableOrderedSet *m_selectedAssetURLs;
     NSArray *m_assetsGroups;
     ALAssetsGroup *m_assetsGroup;
     NSArray *m_assets;
@@ -43,6 +44,7 @@
     UIView* m_headerView;
     UIView* m_footerView;
     UIButton* m_titleBtn;
+    UIButton* m_doneBtn;
     UITableView* m_tableView;
 }
 @end
@@ -50,7 +52,7 @@
 @implementation SimpleImagePickerController
 
 static NSString * const reuseIdentifier = @"ImageCell";
-static NSString * const ablumCellIdentifier = @"AblumCell";
+static NSString * const cameraIdentifier = @"CameraIdentifier";
 
 + (BOOL)isAccessible
 {
@@ -75,8 +77,8 @@ static NSString * const ablumCellIdentifier = @"AblumCell";
         self.numberOfColumnsInPortrait = 4;
         self.numberOfColumnsInLandscape = 7;
         m_assetsLibrary = [ALAssetsLibrary new];
-        m_selectedAssetURLs = [NSMutableOrderedSet orderedSet];
-
+        _selectedAssetURLs = [NSMutableOrderedSet orderedSet];
+        self.collectionView.allowsMultipleSelection = YES;
     }
     return self;
 }
@@ -90,31 +92,35 @@ static NSString * const ablumCellIdentifier = @"AblumCell";
     // Register cell classes
     
     [self createHeaderView];
-    
     [self createFooterView];
 
     
     self.collectionView.frame = CGRectMake(0, m_headerView.frame.origin.y+m_headerView.frame.size.height, SCREENWIDTH, SCREENHEIGHT-m_headerView.frame.size.height-m_footerView.frame.size.height);
     self.collectionView.backgroundColor = [UIColor whiteColor];
-    [self.collectionView registerClass:[QBAssetCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[SimpleAssetCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[SimpleCameraCell class] forCellWithReuseIdentifier:cameraIdentifier];
     
     [self updateAssetsGroupsWithCompletion:^{
-        m_assetsGroup = m_assetsGroups[0];
-        [self setupAssetsGroup];
-        NSString* groupName = [m_assetsGroup valueForProperty:ALAssetsGroupPropertyName];
-        CGSize titleSize = [groupName sizeWithFont:m_titleBtn.titleLabel.font constrainedToSize:CGSizeMake(240, m_titleBtn.frame.size.height)];
-        m_titleBtn.frame = CGRectMake(0, 0, titleSize.width, titleSize.height);
-        m_titleBtn.center = CGPointMake(SCREENWIDTH/2, Y_OFFSET+22);
-        [m_titleBtn setTitle:groupName forState:UIControlStateNormal];
-        
-        [m_tableView reloadData];
+        if (m_assetsGroups.count)
+        {
+            m_assetsGroup = m_assetsGroups[0];
+            [self changeAlbumTitle:[m_assetsGroup valueForProperty:ALAssetsGroupPropertyName]];
+            [self setupAssetsGroup];
+            [m_tableView reloadData];
+            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            [m_tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+//            UITableViewCell* cell = [m_tableView cellForRowAtIndexPath:indexPath];
+//            cell.selected = YES;
+        }
     }];
     
     m_tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.collectionView.frame.origin.y, SCREENWIDTH, 0) style:UITableViewStylePlain];
     m_tableView.dataSource = self;
     m_tableView.delegate = self;
+    m_tableView.backgroundColor = [UIColor colorWithRed:120 green:120 blue:200 alpha:1];
+    m_tableView.backgroundView = nil;
+    m_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:m_tableView];
-    [m_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ablumCellIdentifier];
     // Do any additional setup after loading the view.
 }
 
@@ -136,12 +142,25 @@ static NSString * const ablumCellIdentifier = @"AblumCell";
 
         UIButton* cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,Y_OFFSET, 44, 44)];
         [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
-        [cancelBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [cancelBtn setTitleColor:[UIColor colorWithRed:0 green:202 blue:223 alpha:1] forState:UIControlStateNormal];
         cancelBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [cancelBtn addTarget:self action:@selector(cancelAction) forControlEvents:UIControlEventTouchUpInside];
         [m_headerView addSubview:cancelBtn];
+        
+        m_doneBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREENWIDTH-44, Y_OFFSET, 44, 44)];
+        [m_doneBtn setTitle:@"完成" forState:UIControlStateNormal];
+        [m_doneBtn setTitleColor:cancelBtn.titleLabel.textColor forState:UIControlStateNormal];
+        m_doneBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [m_doneBtn addTarget:self action:@selector(doneAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self updateDoneBtn];
+        [m_headerView addSubview:m_doneBtn];
         
         m_titleBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,Y_OFFSET+7,0,30)];
         [m_titleBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [m_titleBtn setImage:[UIImage imageNamed:@"down_arrow.png"] forState:UIControlStateNormal];
+        [m_titleBtn setImage:[UIImage imageNamed:@"up_arrow.png"] forState:UIControlStateSelected];
+        [m_titleBtn setBackgroundImage:[UIImage imageNamed:@"bg.png"] forState:UIControlStateHighlighted];
+        [m_titleBtn addTarget:self action:@selector(changeAlbumState:) forControlEvents:UIControlEventTouchDown];
         [m_titleBtn addTarget:self action:@selector(changeAlbum:) forControlEvents:UIControlEventTouchUpInside];
         [m_headerView addSubview:m_titleBtn];
     }
@@ -155,9 +174,70 @@ static NSString * const ablumCellIdentifier = @"AblumCell";
     else
     {
         m_footerView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREENHEIGHT-49, SCREENWIDTH, 49)];
-        m_footerView.backgroundColor = [UIColor redColor];
         [self.view addSubview:m_footerView];
+        UIButton* originBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 60, 30)];
+        originBtn.layer.cornerRadius = 2.f;
+        originBtn.layer.borderColor = [UIColor grayColor].CGColor;
+        originBtn.layer.borderWidth = 0.5f;
+        [originBtn setTitle:@"原图" forState:UIControlStateNormal];
+        [originBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [originBtn setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+        [m_footerView addSubview:originBtn];
+        
+        UIButton* previewBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREENWIDTH-70, 10, 60, 30)];
+        previewBtn.layer.cornerRadius = 2.f;
+        previewBtn.layer.borderWidth = 0.5f;
+        previewBtn.layer.borderColor = [UIColor grayColor].CGColor;
+        [previewBtn setTitle:@"预览" forState:UIControlStateNormal];
+        [previewBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [previewBtn addTarget:self action:@selector(previewAction:) forControlEvents:UIControlEventTouchUpInside];
+        [m_footerView addSubview:previewBtn];
     }
+}
+
+#pragma mark ACTION
+- (void)cancelAction
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+- (void)doneAction:(UIButton*)sender
+{
+    if ([_delegate respondsToSelector:@selector(simpleImagePickerController:didSelectAssets:)])
+    {
+        [_delegate simpleImagePickerController:self didSelectAssets:_selectedAssetURLs.array];
+    }
+    [self cancelAction];
+}
+
+- (void)previewAction:(UIButton*)sender
+{
+    SimpleImagePreviewController* preview = [[SimpleImagePreviewController alloc] init];
+    preview.selectedAssetURLs = _selectedAssetURLs;
+    [self presentViewController:preview animated:YES completion:^{
+        
+    }];
+}
+
+- (void)updateDoneBtn
+{
+    if (_selectedAssetURLs.count > _minimumNumberOfSelection)
+    {
+        m_doneBtn.enabled = YES;
+    }
+    else
+    {
+        m_doneBtn.enabled = NO;
+    }
+}
+
+- (void)changeAlbumState:(UIButton*)sender
+{
+    sender.layer.cornerRadius = 2.f;
+    sender.layer.borderWidth = 0.5f;
+    sender.layer.borderColor = [UIColor colorWithRed:205 green:205 blue:205 alpha:1].CGColor;
 }
 
 - (void)changeAlbum:(UIButton*)sender
@@ -165,21 +245,33 @@ static NSString * const ablumCellIdentifier = @"AblumCell";
     sender.selected = !sender.selected;
     if (m_assetsGroups.count)
     {
+        CGFloat tableViewHeight = m_assetsGroups.count*60;
+        tableViewHeight = tableViewHeight>240?240:tableViewHeight;
         [UIView animateWithDuration:0.5 animations:^{
-            m_tableView.frame = CGRectMake(0, m_tableView.frame.origin.y, SCREENWIDTH, sender.selected?m_assetsGroups.count*80:0);
+            m_tableView.frame = CGRectMake(0, m_tableView.frame.origin.y, SCREENWIDTH, sender.selected?tableViewHeight:0);
         } completion:^(BOOL finished) {
             
         }];
     }
 }
 
+- (void)changeAlbumTitle:(NSString*)title
+{
+    CGSize titleSize = [title sizeWithFont:m_titleBtn.titleLabel.font constrainedToSize:CGSizeMake(240, m_titleBtn.frame.size.height)];
+    m_titleBtn.frame = CGRectMake(0, 0, titleSize.width>160?titleSize.width:160, titleSize.height>30?titleSize.height:30);
+    m_titleBtn.center = CGPointMake(SCREENWIDTH/2, Y_OFFSET+22);
+    [m_titleBtn setTitle:title forState:UIControlStateNormal];
+    [m_titleBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -m_titleBtn.imageView.image.size.width, 0, m_titleBtn.imageView.image.size.width)];
+    [m_titleBtn setImageEdgeInsets:UIEdgeInsetsMake(0, m_titleBtn.titleLabel.bounds.size.width, 0, -m_titleBtn.titleLabel.bounds.size.width)];
+}
+
 - (void)setupAssetsGroup
 {
     [self updateAssets];
     
-    if (m_selectedAssetURLs.count > 0) {
+    if (_selectedAssetURLs.count > 0) {
         // Get index of previous selected asset
-        NSURL *previousSelectedAssetURL = [m_selectedAssetURLs firstObject];
+        NSURL *previousSelectedAssetURL = [_selectedAssetURLs firstObject];
         
         [m_assets enumerateObjectsUsingBlock:^(ALAsset *asset, NSUInteger index, BOOL *stop) {
             NSURL *assetURL = [asset valueForProperty:ALAssetPropertyAssetURL];
@@ -277,7 +369,7 @@ static NSString * const ablumCellIdentifier = @"AblumCell";
 {
     // Load assets from URLs
     // The asset will be ignored if it is not found
-    NSMutableOrderedSet *selectedAssetURLs = m_selectedAssetURLs;
+    NSMutableOrderedSet *selectedAssetURLs = _selectedAssetURLs;
     
     __block NSMutableArray *assets = [NSMutableArray array];
     
@@ -355,12 +447,18 @@ static NSString * const ablumCellIdentifier = @"AblumCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80.f;
+    return 60.f;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:ablumCellIdentifier forIndexPath:indexPath];
+    static NSString *  ablumCellIdentifier = @"AblumCell";
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:ablumCellIdentifier];
+    if (!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ablumCellIdentifier];
+        cell.contentView.backgroundColor = [UIColor clearColor];
+    }
     ALAssetsGroup* assetGroup = m_assetsGroups[indexPath.row];
     NSUInteger numberOfAsserts = [assetGroup numberOfAssets];
     if (numberOfAsserts)
@@ -368,6 +466,7 @@ static NSString * const ablumCellIdentifier = @"AblumCell";
         [assetGroup enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
             if (result) {
                 cell.imageView.image = [UIImage imageWithCGImage:[result thumbnail]];
+                
             }
         }];
     }
@@ -376,6 +475,14 @@ static NSString * const ablumCellIdentifier = @"AblumCell";
     return cell;
 }
 
+#pragma mark UITableView delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    m_assetsGroup = m_assetsGroups[indexPath.row];
+    [self changeAlbumTitle:[m_assetsGroup valueForProperty:ALAssetsGroupPropertyName]];
+    [self changeAlbum:m_titleBtn];
+    [self setupAssetsGroup];
+}
 
 #pragma mark UICollectionViewFlewLayoutDelegate
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -419,20 +526,35 @@ static NSString * const ablumCellIdentifier = @"AblumCell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return m_numberOfAssets;
+    return m_numberOfAssets+1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    QBAssetCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Image
-    ALAsset *asset = m_assets[indexPath.item];
-    UIImage *image = [UIImage imageWithCGImage:[asset thumbnail]];
-    cell.imageView.image = image;
-    return cell;
+    if (indexPath.item)
+    {
+        SimpleAssetCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+        // Image
+        ALAsset *asset = m_assets[indexPath.item-1];
+        UIImage *image = [UIImage imageWithCGImage:[asset thumbnail]];
+        cell.imageView.image = image;
+        NSURL* assetUrl = [asset valueForProperty:ALAssetPropertyAssetURL];
+        
+        if ([_selectedAssetURLs containsObject:assetUrl])
+        {
+            [cell setSelected:YES];
+        }
+        return cell;
+    }
+    else
+    {
+        SimpleCameraCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:cameraIdentifier forIndexPath:indexPath];
+        return cell;
+    }
 }
 
 #pragma mark <UICollectionViewDelegate>
+
 
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking
@@ -441,12 +563,70 @@ static NSString * const ablumCellIdentifier = @"AblumCell";
 }
 */
 
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.item)
+    {
+        ALAsset* asset  = m_assets[indexPath.item-1];
+        NSURL* assetUrl = [asset valueForProperty:ALAssetPropertyAssetURL];
+        [_selectedAssetURLs addObject:assetUrl];
+        [self updateDoneBtn];
+    }
+    else
+    {
+        if ([_delegate respondsToSelector:@selector(selectCamera:)])
+        {
+            [_delegate selectCamera:self];
+        }
+        else
+        {
+            if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
+            {
+                UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+                imagePickerController.delegate = self;
+                imagePickerController.allowsEditing = NO;
+                imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+                [self presentViewController:imagePickerController animated:YES completion:^{}];
+            }
+            else
+            {
+                NSLog(@"不存在照相机");
+            }
+        }
+    }
 }
-*/
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.item)
+    {
+        ALAsset* asset  = m_assets[indexPath.item-1];
+        NSURL* assetUrl = [asset valueForProperty:ALAssetPropertyAssetURL];
+        [_selectedAssetURLs removeObject:assetUrl];
+        [self updateDoneBtn];
+    }
+    else
+    {
+        
+    }
+}
+
+// Uncomment this method to specify if the specified item should be selected
+//- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+//    SimpleAssetCell* cell = (SimpleAssetCell*)[collectionView cellForItemAtIndexPath:indexPath];
+//    cell.selected = YES;
+//    NSLog(@"%d",cell.selected);
+//    return YES;
+//}
+
+//- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    SimpleAssetCell* cell = (SimpleAssetCell*)[collectionView cellForItemAtIndexPath:indexPath];
+//    cell.selected = NO;
+//    return YES;
+//}
+
 
 /*
 // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
@@ -462,5 +642,19 @@ static NSString * const ablumCellIdentifier = @"AblumCell";
 	
 }
 */
+
+#pragma mark UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    ALAssetsLibrary* library = [[ALAssetsLibrary alloc] init];
+    [library writeImageToSavedPhotosAlbum:[image CGImage] orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error) {
+        if (!error)
+        {
+            [_selectedAssetURLs addObject:assetURL];
+        }
+    }];
+}
 
 @end

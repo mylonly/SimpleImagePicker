@@ -10,36 +10,31 @@
 	<string>SimpleImagePicker</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>c019c1b5-afc1-4339-90a6-e4814574cbf7++1297</key>
-		<string>http://svn.babyun.cn/apps/branches/ios-phone</string>
+		<key>6A42016EF9A1189256D041C69BFDBF310EAD2957</key>
+		<string>https://github.com/mylonly/SimpleImagePicker.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>v3.0/SimpleImagePicker/SimpleImagePicker.xcodeproj</string>
+	<string>SimpleImagePicker.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>c019c1b5-afc1-4339-90a6-e4814574cbf7++1297</key>
-		<string>../../../..</string>
-	</dict>
-	<key>IDESourceControlProjectRepositoryRootDictionary</key>
-	<dict>
-		<key>c019c1b5-afc1-4339-90a6-e4814574cbf7++1297</key>
-		<string>http://svn.babyun.cn</string>
+		<key>6A42016EF9A1189256D041C69BFDBF310EAD2957</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>http://svn.babyun.cn/apps/branches/ios-phone/v3.0/SimpleImagePicker/SimpleImagePicker.xcodeproj</string>
+	<string>https://github.com/mylonly/SimpleImagePicker.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>c019c1b5-afc1-4339-90a6-e4814574cbf7++1297</string>
+	<string>6A42016EF9A1189256D041C69BFDBF310EAD2957</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
+			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>c019c1b5-afc1-4339-90a6-e4814574cbf7++1297</string>
+			<string>6A42016EF9A1189256D041C69BFDBF310EAD2957</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Babyun-IOS</string>
+			<string>SimpleImagePicker</string>
 		</dict>
 	</array>
 </dict>

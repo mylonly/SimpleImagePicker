@@ -15,11 +15,18 @@
 		CD24FCC51B3262F200B1A29F /* SimpleImagePickerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCC41B3262F200B1A29F /* SimpleImagePickerDemoTests.m */; };
 		CD24FCD11B32678500B1A29F /* SimpleImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCD01B32678500B1A29F /* SimpleImagePickerController.m */; };
 		CD24FCDE1B32AB1000B1A29F /* QBAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCD51B32AB1000B1A29F /* QBAlbumCell.m */; };
-		CD24FCDF1B32AB1000B1A29F /* QBAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCD71B32AB1000B1A29F /* QBAssetCell.m */; };
+		CD24FCDF1B32AB1000B1A29F /* SimpleAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCD71B32AB1000B1A29F /* SimpleAssetCell.m */; };
 		CD24FCE01B32AB1000B1A29F /* QBCheckmarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCD91B32AB1000B1A29F /* QBCheckmarkView.m */; };
 		CD24FCE11B32AB1000B1A29F /* QBVideoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCDB1B32AB1000B1A29F /* QBVideoIconView.m */; };
 		CD24FCE21B32AB1000B1A29F /* QBVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCDD1B32AB1000B1A29F /* QBVideoIndicatorView.m */; };
 		CD24FCE41B33F14000B1A29F /* 添加拍照@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD24FCE31B33F14000B1A29F /* 添加拍照@2x.png */; };
+		CD618B981B395383004BDE3E /* SimpleCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD618B971B395383004BDE3E /* SimpleCameraCell.m */; };
+		CD618B9C1B3956DA004BDE3E /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD618B9B1B3956DA004BDE3E /* camera@2x.png */; };
+		CD618BA01B39666B004BDE3E /* SimpleImagePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD618B9F1B39666B004BDE3E /* SimpleImagePreviewController.m */; };
+		CDABBC8D1B39080E00B78CFA /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDABBC8C1B39080E00B78CFA /* bg@2x.png */; };
+		CDABBC8F1B390A5200B78CFA /* down_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDABBC8E1B390A5200B78CFA /* down_arrow@2x.png */; };
+		CDABBC911B390D4700B78CFA /* up_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDABBC901B390D4700B78CFA /* up_arrow@2x.png */; };
+		CDABBC931B3933A500B78CFA /* selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDABBC921B3933A500B78CFA /* selected@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +56,8 @@
 		CD24FCD01B32678500B1A29F /* SimpleImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleImagePickerController.m; sourceTree = "<group>"; };
 		CD24FCD41B32AB1000B1A29F /* QBAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAlbumCell.h; sourceTree = "<group>"; };
 		CD24FCD51B32AB1000B1A29F /* QBAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAlbumCell.m; sourceTree = "<group>"; };
-		CD24FCD61B32AB1000B1A29F /* QBAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAssetCell.h; sourceTree = "<group>"; };
-		CD24FCD71B32AB1000B1A29F /* QBAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAssetCell.m; sourceTree = "<group>"; };
+		CD24FCD61B32AB1000B1A29F /* SimpleAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAssetCell.h; sourceTree = "<group>"; };
+		CD24FCD71B32AB1000B1A29F /* SimpleAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAssetCell.m; sourceTree = "<group>"; };
 		CD24FCD81B32AB1000B1A29F /* QBCheckmarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBCheckmarkView.h; sourceTree = "<group>"; };
 		CD24FCD91B32AB1000B1A29F /* QBCheckmarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBCheckmarkView.m; sourceTree = "<group>"; };
 		CD24FCDA1B32AB1000B1A29F /* QBVideoIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBVideoIconView.h; sourceTree = "<group>"; };
@@ -58,6 +65,15 @@
 		CD24FCDC1B32AB1000B1A29F /* QBVideoIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBVideoIndicatorView.h; sourceTree = "<group>"; };
 		CD24FCDD1B32AB1000B1A29F /* QBVideoIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIndicatorView.m; sourceTree = "<group>"; };
 		CD24FCE31B33F14000B1A29F /* 添加拍照@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加拍照@2x.png"; sourceTree = "<group>"; };
+		CD618B961B395383004BDE3E /* SimpleCameraCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleCameraCell.h; sourceTree = "<group>"; };
+		CD618B971B395383004BDE3E /* SimpleCameraCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleCameraCell.m; sourceTree = "<group>"; };
+		CD618B9B1B3956DA004BDE3E /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
+		CD618B9E1B39666B004BDE3E /* SimpleImagePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleImagePreviewController.h; sourceTree = "<group>"; };
+		CD618B9F1B39666B004BDE3E /* SimpleImagePreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleImagePreviewController.m; sourceTree = "<group>"; };
+		CDABBC8C1B39080E00B78CFA /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		CDABBC8E1B390A5200B78CFA /* down_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_arrow@2x.png"; sourceTree = "<group>"; };
+		CDABBC901B390D4700B78CFA /* up_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up_arrow@2x.png"; sourceTree = "<group>"; };
+		CDABBC921B3933A500B78CFA /* selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selected@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,16 +167,25 @@
 		CD24FCD31B32AB0300B1A29F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CD618B9B1B3956DA004BDE3E /* camera@2x.png */,
+				CDABBC8E1B390A5200B78CFA /* down_arrow@2x.png */,
+				CDABBC901B390D4700B78CFA /* up_arrow@2x.png */,
+				CDABBC921B3933A500B78CFA /* selected@2x.png */,
+				CDABBC8C1B39080E00B78CFA /* bg@2x.png */,
 				CD24FCD41B32AB1000B1A29F /* QBAlbumCell.h */,
 				CD24FCD51B32AB1000B1A29F /* QBAlbumCell.m */,
-				CD24FCD61B32AB1000B1A29F /* QBAssetCell.h */,
-				CD24FCD71B32AB1000B1A29F /* QBAssetCell.m */,
+				CD24FCD61B32AB1000B1A29F /* SimpleAssetCell.h */,
+				CD24FCD71B32AB1000B1A29F /* SimpleAssetCell.m */,
 				CD24FCD81B32AB1000B1A29F /* QBCheckmarkView.h */,
 				CD24FCD91B32AB1000B1A29F /* QBCheckmarkView.m */,
 				CD24FCDA1B32AB1000B1A29F /* QBVideoIconView.h */,
 				CD24FCDB1B32AB1000B1A29F /* QBVideoIconView.m */,
 				CD24FCDC1B32AB1000B1A29F /* QBVideoIndicatorView.h */,
 				CD24FCDD1B32AB1000B1A29F /* QBVideoIndicatorView.m */,
+				CD618B961B395383004BDE3E /* SimpleCameraCell.h */,
+				CD618B971B395383004BDE3E /* SimpleCameraCell.m */,
+				CD618B9E1B39666B004BDE3E /* SimpleImagePreviewController.h */,
+				CD618B9F1B39666B004BDE3E /* SimpleImagePreviewController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,8 +269,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDABBC8F1B390A5200B78CFA /* down_arrow@2x.png in Resources */,
+				CDABBC911B390D4700B78CFA /* up_arrow@2x.png in Resources */,
 				CD24FCE41B33F14000B1A29F /* 添加拍照@2x.png in Resources */,
+				CD618B9C1B3956DA004BDE3E /* camera@2x.png in Resources */,
+				CDABBC931B3933A500B78CFA /* selected@2x.png in Resources */,
 				CD24FCB91B3262F200B1A29F /* LaunchScreen.xib in Resources */,
+				CDABBC8D1B39080E00B78CFA /* bg@2x.png in Resources */,
 				CD24FCB61B3262F200B1A29F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,12 +294,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD618B981B395383004BDE3E /* SimpleCameraCell.m in Sources */,
 				CD24FCB11B3262F200B1A29F /* ViewController.m in Sources */,
+				CD618BA01B39666B004BDE3E /* SimpleImagePreviewController.m in Sources */,
 				CD24FCDE1B32AB1000B1A29F /* QBAlbumCell.m in Sources */,
 				CD24FCE11B32AB1000B1A29F /* QBVideoIconView.m in Sources */,
 				CD24FCE01B32AB1000B1A29F /* QBCheckmarkView.m in Sources */,
 				CD24FCAE1B3262F200B1A29F /* AppDelegate.m in Sources */,
-				CD24FCDF1B32AB1000B1A29F /* QBAssetCell.m in Sources */,
+				CD24FCDF1B32AB1000B1A29F /* SimpleAssetCell.m in Sources */,
 				CD24FCAB1B3262F200B1A29F /* main.m in Sources */,
 				CD24FCE21B32AB1000B1A29F /* QBVideoIndicatorView.m in Sources */,
 				CD24FCD11B32678500B1A29F /* SimpleImagePickerController.m in Sources */,

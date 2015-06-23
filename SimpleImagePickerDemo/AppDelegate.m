@@ -12,7 +12,7 @@
 #define SCREENWIDTH  [[UIScreen mainScreen] bounds].size.width
 
 
-@interface AppDelegate ()
+@interface AppDelegate ()<SimpleImagePickerControllerDelegate>
 
 @end
 
@@ -28,11 +28,20 @@
     
     UICollectionViewFlowLayout* flow = [[UICollectionViewFlowLayout alloc] init];
     SimpleImagePickerController* imagePicker = [[SimpleImagePickerController alloc] initWithCollectionViewLayout:flow];
+    imagePicker.delegate = self;
     self.window.rootViewController = imagePicker;
     
     // Override point for customization after application launch.
     
     return YES;
+}
+
+- (void)simpleImagePickerController:(SimpleImagePickerController *)imagePickerController didSelectAssets:(NSArray *)assets
+{
+    for (NSURL* url in assets)
+    {
+        NSLog(@"%@",url);
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
