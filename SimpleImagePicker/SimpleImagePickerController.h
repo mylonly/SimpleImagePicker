@@ -40,13 +40,8 @@ typedef NS_ENUM(NSUInteger, SimpleImagePickerControllerFilterType)
 
 @property (nonatomic,assign) SimpleImagePickerControllerFilterType filterType;
 
-
-@property (nonatomic,strong) UIView* headerView;
-
-@property (nonatomic,strong) UIView* footView;
-
-
 @property (nonatomic,strong) NSMutableOrderedSet *selectedAssetURLs;
+@property (nonatomic,strong) UIColor* baseColor;
 
 @property (nonatomic, assign) NSUInteger minimumNumberOfSelection;
 @property (nonatomic, assign) NSUInteger maximumNumberOfSelection;

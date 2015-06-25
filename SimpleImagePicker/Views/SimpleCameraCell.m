@@ -20,7 +20,6 @@
         self.imageView.image = [UIImage imageNamed:@"camera.png"];
         self.imageView.contentMode = UIViewContentModeScaleAspectFill;
         [self.contentView addSubview:self.imageView];
-        self.backgroundColor = [UIColor colorWithRed:120 green:120 blue:120 alpha:1];
     }
     return self;
 }

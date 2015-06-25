@@ -45,6 +45,7 @@
     UIView* m_footerView;
     UIButton* m_titleBtn;
     UIButton* m_doneBtn;
+    UIButton* m_previewBtn;
     UITableView* m_tableView;
 }
 @end
@@ -74,8 +75,10 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
                          ];
         self.filterType = SimpleImagePickerControllerFilterTypeNone;
         self.minimumNumberOfSelection = 1;
+        self.maximumNumberOfSelection = 9;
         self.numberOfColumnsInPortrait = 4;
         self.numberOfColumnsInLandscape = 7;
+        self.baseColor = [UIColor colorWithRed:0 green:202 blue:223 alpha:1];
         m_assetsLibrary = [ALAssetsLibrary new];
         _selectedAssetURLs = [NSMutableOrderedSet orderedSet];
         self.collectionView.allowsMultipleSelection = YES;
@@ -93,26 +96,15 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
     
     [self createHeaderView];
     [self createFooterView];
-
     
-    self.collectionView.frame = CGRectMake(0, m_headerView.frame.origin.y+m_headerView.frame.size.height, SCREENWIDTH, SCREENHEIGHT-m_headerView.frame.size.height-m_footerView.frame.size.height);
+    [self updateBtn];
+    
+    self.collectionView.frame = CGRectMake(0, m_headerView.frame.origin.y+m_headerView.frame.size.height, SCREENWIDTH, self.view.bounds.size.height-m_headerView.frame.size.height-m_footerView.frame.size.height);
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerClass:[SimpleAssetCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView registerClass:[SimpleCameraCell class] forCellWithReuseIdentifier:cameraIdentifier];
     
-    [self updateAssetsGroupsWithCompletion:^{
-        if (m_assetsGroups.count)
-        {
-            m_assetsGroup = m_assetsGroups[0];
-            [self changeAlbumTitle:[m_assetsGroup valueForProperty:ALAssetsGroupPropertyName]];
-            [self setupAssetsGroup];
-            [m_tableView reloadData];
-            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-            [m_tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-//            UITableViewCell* cell = [m_tableView cellForRowAtIndexPath:indexPath];
-//            cell.selected = YES;
-        }
-    }];
+    [self updateAssetsGroups];
     
     m_tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.collectionView.frame.origin.y, SCREENWIDTH, 0) style:UITableViewStylePlain];
     m_tableView.dataSource = self;
@@ -122,6 +114,13 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
     m_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:m_tableView];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self updateBtn];
+//    [self.collectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -142,7 +141,7 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
 
         UIButton* cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,Y_OFFSET, 44, 44)];
         [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
-        [cancelBtn setTitleColor:[UIColor colorWithRed:0 green:202 blue:223 alpha:1] forState:UIControlStateNormal];
+        [cancelBtn setTitleColor:self.baseColor forState:UIControlStateNormal];
         cancelBtn.titleLabel.font = [UIFont systemFontOfSize:14];
         [cancelBtn addTarget:self action:@selector(cancelAction) forControlEvents:UIControlEventTouchUpInside];
         [m_headerView addSubview:cancelBtn];
@@ -150,9 +149,9 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
         m_doneBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREENWIDTH-44, Y_OFFSET, 44, 44)];
         [m_doneBtn setTitle:@"完成" forState:UIControlStateNormal];
         [m_doneBtn setTitleColor:cancelBtn.titleLabel.textColor forState:UIControlStateNormal];
+        [m_doneBtn setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
         m_doneBtn.titleLabel.font = [UIFont systemFontOfSize:14];
         [m_doneBtn addTarget:self action:@selector(doneAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self updateDoneBtn];
         [m_headerView addSubview:m_doneBtn];
         
         m_titleBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,Y_OFFSET+7,0,30)];
@@ -173,29 +172,73 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
     }
     else
     {
-        m_footerView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREENHEIGHT-49, SCREENWIDTH, 49)];
+        m_footerView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREENHEIGHT-40, SCREENWIDTH, 40)];
+        m_footerView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.8];
         [self.view addSubview:m_footerView];
-        UIButton* originBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 60, 30)];
+        UIView* line = [[UIView alloc] initWithFrame:CGRectMake(0, -0.5, SCREENWIDTH, 0.5)];
+        line.backgroundColor = [UIColor lightGrayColor];
+        [m_footerView addSubview:line];
+        UIButton* originBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 7.5, 60, 25)];
         originBtn.layer.cornerRadius = 2.f;
         originBtn.layer.borderColor = [UIColor grayColor].CGColor;
         originBtn.layer.borderWidth = 0.5f;
         [originBtn setTitle:@"原图" forState:UIControlStateNormal];
+        originBtn.titleLabel.font = [UIFont systemFontOfSize:14];
         [originBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [originBtn setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
         [m_footerView addSubview:originBtn];
         
-        UIButton* previewBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREENWIDTH-70, 10, 60, 30)];
-        previewBtn.layer.cornerRadius = 2.f;
-        previewBtn.layer.borderWidth = 0.5f;
-        previewBtn.layer.borderColor = [UIColor grayColor].CGColor;
-        [previewBtn setTitle:@"预览" forState:UIControlStateNormal];
-        [previewBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [previewBtn addTarget:self action:@selector(previewAction:) forControlEvents:UIControlEventTouchUpInside];
-        [m_footerView addSubview:previewBtn];
+        m_previewBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREENWIDTH-70, 7.5, 60, 25)];
+        m_previewBtn.layer.cornerRadius = 2.f;
+        m_previewBtn.layer.borderWidth = 0.5f;
+        m_previewBtn.layer.masksToBounds = YES;
+        m_previewBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        m_previewBtn.layer.borderColor = [UIColor grayColor].CGColor;
+        [m_previewBtn setTitle:@"预览" forState:UIControlStateNormal];
+        [m_previewBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [m_previewBtn setBackgroundImage:[self imageWithColor:self.baseColor andSize:m_previewBtn.bounds.size] forState:UIControlStateNormal];
+        [m_previewBtn setBackgroundImage:[self imageWithColor:[UIColor whiteColor] andSize:m_previewBtn.bounds.size] forState:UIControlStateDisabled];
+        [m_previewBtn setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+        m_previewBtn.enabled = NO;
+        [m_previewBtn addTarget:self action:@selector(previewAction:) forControlEvents:UIControlEventTouchUpInside];
+        [m_footerView addSubview:m_previewBtn];
     }
 }
 
 #pragma mark ACTION
+
+- (UIImage *)imageWithColor:(UIColor *)color andSize:(CGSize)size
+{
+    UIImage *img = nil;
+    
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context,
+                                   color.CGColor);
+    CGContextFillRect(context, rect);
+    img = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return img;
+}
+
+- (void)updateAssetsGroups
+{
+    [self updateAssetsGroupsWithCompletion:^{
+        if (m_assetsGroups.count)
+        {
+            m_assetsGroup = m_assetsGroups[0];
+            [self changeAlbumTitle:[m_assetsGroup valueForProperty:ALAssetsGroupPropertyName]];
+            [self setupAssetsGroup];
+            [m_tableView reloadData];
+            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            [m_tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        }
+    }];
+}
+
 - (void)cancelAction
 {
     [self dismissViewControllerAnimated:YES completion:^{
@@ -221,15 +264,34 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
     }];
 }
 
-- (void)updateDoneBtn
+- (void)updateBtn
 {
-    if (_selectedAssetURLs.count > _minimumNumberOfSelection)
+    if (_selectedAssetURLs.count >= _minimumNumberOfSelection)
     {
         m_doneBtn.enabled = YES;
+        m_previewBtn.enabled = YES;
+        NSString* previewTitle = [NSString stringWithFormat:@"预览(%ld)",_selectedAssetURLs.count];
+        CGSize titleSize = [previewTitle sizeWithFont:m_previewBtn.titleLabel.font constrainedToSize:CGSizeMake(MAXFLOAT, m_previewBtn.bounds.size.height)];
+        if (titleSize.width < 60)
+        {
+            titleSize = CGSizeMake(60, titleSize.height);
+        }
+        [m_previewBtn setTitle:previewTitle forState:UIControlStateNormal];
+        m_previewBtn.frame = CGRectMake(SCREENWIDTH-titleSize.width-20, m_previewBtn.frame.origin.y, titleSize.width+10, m_previewBtn.bounds.size.height);
+        m_previewBtn.layer.borderWidth = 0.f;
     }
     else
     {
+        NSString* previewTitle = @"预览";
+        CGSize titleSize = [previewTitle sizeWithFont:m_previewBtn.titleLabel.font constrainedToSize:CGSizeMake(MAXFLOAT, m_previewBtn.bounds.size.height)];
+        if (titleSize.width < 60)
+        {
+            titleSize = CGSizeMake(60, titleSize.height);
+        }
+        [m_previewBtn setTitle:previewTitle forState:UIControlStateNormal];
         m_doneBtn.enabled = NO;
+        m_previewBtn.enabled = NO;
+        m_previewBtn.layer.borderWidth = 0.5f;
     }
 }
 
@@ -268,20 +330,6 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
 - (void)setupAssetsGroup
 {
     [self updateAssets];
-    
-    if (_selectedAssetURLs.count > 0) {
-        // Get index of previous selected asset
-        NSURL *previousSelectedAssetURL = [_selectedAssetURLs firstObject];
-        
-        [m_assets enumerateObjectsUsingBlock:^(ALAsset *asset, NSUInteger index, BOOL *stop) {
-            NSURL *assetURL = [asset valueForProperty:ALAssetPropertyAssetURL];
-            
-            if ([assetURL isEqual:previousSelectedAssetURL]) {
-                m_lastSelectedItemIndexPath = [NSIndexPath indexPathForItem:index inSection:0];
-                *stop = YES;
-            }
-        }];
-    }
     [self.collectionView reloadData];
 }
 - (void)updateAssetsGroupsWithCompletion:(void (^)(void))completion
@@ -294,9 +342,7 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
             if (!array) {
                 array = [NSMutableArray array];
             }
-            
             [array addObject:assetsGroup];
-            
             mappedAssetsGroups[[assetsGroup valueForProperty:ALAssetsGroupPropertyType]] = array;
         }
         
@@ -310,9 +356,7 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
                 [sortedAssetsGroups addObjectsFromArray:array];
             }
         }
-        
         m_assetsGroups = sortedAssetsGroups;
-        
         if (completion) {
             completion();
         }
@@ -471,7 +515,7 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
         }];
     }
     cell.textLabel.text = [assetGroup valueForProperty:ALAssetsGroupPropertyName];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu",numberOfAsserts];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)numberOfAsserts];
     return cell;
 }
 
@@ -493,9 +537,7 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
     } else {
         numberOfColumns = self.numberOfColumnsInLandscape;
     }
-    
     CGFloat width = (CGRectGetWidth(self.view.frame) - 2.0 * (numberOfColumns + 1)) / numberOfColumns;
-    
     return CGSizeMake(width, width);
 }
 
@@ -535,14 +577,16 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
     {
         SimpleAssetCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
         // Image
-        ALAsset *asset = m_assets[indexPath.item-1];
+        ALAsset *asset = m_assets[m_numberOfAssets - indexPath.item];
         UIImage *image = [UIImage imageWithCGImage:[asset thumbnail]];
         cell.imageView.image = image;
         NSURL* assetUrl = [asset valueForProperty:ALAssetPropertyAssetURL];
         
         if ([_selectedAssetURLs containsObject:assetUrl])
         {
-            [cell setSelected:YES];
+            cell.selected = YES;
+            [self.collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+            [self collectionView:self.collectionView didSelectItemAtIndexPath:indexPath];
         }
         return cell;
     }
@@ -563,15 +607,26 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
 }
 */
 
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return !(_selectedAssetURLs.count == self.maximumNumberOfSelection);
+}
+
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.item)
     {
-        ALAsset* asset  = m_assets[indexPath.item-1];
+        ALAsset* asset  = m_assets[m_numberOfAssets - indexPath.item];
         NSURL* assetUrl = [asset valueForProperty:ALAssetPropertyAssetURL];
         [_selectedAssetURLs addObject:assetUrl];
-        [self updateDoneBtn];
+        [self updateBtn];
     }
     else
     {
@@ -601,60 +656,35 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
 {
     if (indexPath.item)
     {
-        ALAsset* asset  = m_assets[indexPath.item-1];
+        ALAsset* asset  = m_assets[m_numberOfAssets - indexPath.item];
         NSURL* assetUrl = [asset valueForProperty:ALAssetPropertyAssetURL];
         [_selectedAssetURLs removeObject:assetUrl];
-        [self updateDoneBtn];
+        [self updateBtn];
     }
     else
     {
-        
+         
     }
 }
-
-// Uncomment this method to specify if the specified item should be selected
-//- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    SimpleAssetCell* cell = (SimpleAssetCell*)[collectionView cellForItemAtIndexPath:indexPath];
-//    cell.selected = YES;
-//    NSLog(@"%d",cell.selected);
-//    return YES;
-//}
-
-//- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    SimpleAssetCell* cell = (SimpleAssetCell*)[collectionView cellForItemAtIndexPath:indexPath];
-//    cell.selected = NO;
-//    return YES;
-//}
-
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 #pragma mark UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    ALAssetsLibrary* library = [[ALAssetsLibrary alloc] init];
-    [library writeImageToSavedPhotosAlbum:[image CGImage] orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error) {
-        if (!error)
-        {
-            [_selectedAssetURLs addObject:assetURL];
-        }
+    [picker dismissViewControllerAnimated:YES completion:^{
+        UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        ALAssetsLibrary* library = [[ALAssetsLibrary alloc] init];
+        [library writeImageToSavedPhotosAlbum:[image CGImage] orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error) {
+            if (!error)
+            {
+                [_selectedAssetURLs addObject:assetURL];
+                [self updateBtn];
+                [self updateAssetsGroups];
+            }
+        }];
     }];
 }
+
+
 
 @end

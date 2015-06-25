@@ -30,17 +30,25 @@
         m_overlayView.layer.cornerRadius = 12.5f;
         m_overlayView.layer.borderWidth = 1.f;
         m_overlayView.layer.borderColor = [UIColor whiteColor].CGColor;
-        m_overlayView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+        m_overlayView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
         [self.contentView addSubview:m_overlayView];
     }
     return self;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+}
+
 - (void)setSelected:(BOOL)selected
 {
+    if (self.selected == selected)
+    {
+        return;
+    }
     [super setSelected:selected];
     // Show/hide overlay view
-    
     if (self.selected)
     {
         m_overlayView.image = [UIImage imageNamed:@"selected.png"];

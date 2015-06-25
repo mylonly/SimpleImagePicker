@@ -22,11 +22,12 @@
 		CD24FCE41B33F14000B1A29F /* 添加拍照@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD24FCE31B33F14000B1A29F /* 添加拍照@2x.png */; };
 		CD618B981B395383004BDE3E /* SimpleCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD618B971B395383004BDE3E /* SimpleCameraCell.m */; };
 		CD618B9C1B3956DA004BDE3E /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD618B9B1B3956DA004BDE3E /* camera@2x.png */; };
-		CD618BA01B39666B004BDE3E /* SimpleImagePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD618B9F1B39666B004BDE3E /* SimpleImagePreviewController.m */; };
 		CDABBC8D1B39080E00B78CFA /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDABBC8C1B39080E00B78CFA /* bg@2x.png */; };
 		CDABBC8F1B390A5200B78CFA /* down_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDABBC8E1B390A5200B78CFA /* down_arrow@2x.png */; };
 		CDABBC911B390D4700B78CFA /* up_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDABBC901B390D4700B78CFA /* up_arrow@2x.png */; };
 		CDABBC931B3933A500B78CFA /* selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDABBC921B3933A500B78CFA /* selected@2x.png */; };
+		CDE576121B3A3ADE000EF19C /* SimpleImagePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE576111B3A3ADE000EF19C /* SimpleImagePreviewController.m */; };
+		CDE576161B3A504F000EF19C /* SimpleImagePreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE576151B3A504F000EF19C /* SimpleImagePreviewView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,12 +69,14 @@
 		CD618B961B395383004BDE3E /* SimpleCameraCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleCameraCell.h; sourceTree = "<group>"; };
 		CD618B971B395383004BDE3E /* SimpleCameraCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleCameraCell.m; sourceTree = "<group>"; };
 		CD618B9B1B3956DA004BDE3E /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
-		CD618B9E1B39666B004BDE3E /* SimpleImagePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleImagePreviewController.h; sourceTree = "<group>"; };
-		CD618B9F1B39666B004BDE3E /* SimpleImagePreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleImagePreviewController.m; sourceTree = "<group>"; };
 		CDABBC8C1B39080E00B78CFA /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
 		CDABBC8E1B390A5200B78CFA /* down_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_arrow@2x.png"; sourceTree = "<group>"; };
 		CDABBC901B390D4700B78CFA /* up_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up_arrow@2x.png"; sourceTree = "<group>"; };
 		CDABBC921B3933A500B78CFA /* selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selected@2x.png"; sourceTree = "<group>"; };
+		CDE576101B3A3ADE000EF19C /* SimpleImagePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleImagePreviewController.h; sourceTree = "<group>"; };
+		CDE576111B3A3ADE000EF19C /* SimpleImagePreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleImagePreviewController.m; sourceTree = "<group>"; };
+		CDE576141B3A504F000EF19C /* SimpleImagePreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleImagePreviewView.h; sourceTree = "<group>"; };
+		CDE576151B3A504F000EF19C /* SimpleImagePreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleImagePreviewView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +163,8 @@
 				CD24FCD31B32AB0300B1A29F /* Views */,
 				CD24FCCF1B32678500B1A29F /* SimpleImagePickerController.h */,
 				CD24FCD01B32678500B1A29F /* SimpleImagePickerController.m */,
+				CDE576101B3A3ADE000EF19C /* SimpleImagePreviewController.h */,
+				CDE576111B3A3ADE000EF19C /* SimpleImagePreviewController.m */,
 			);
 			path = SimpleImagePicker;
 			sourceTree = SOURCE_ROOT;
@@ -184,8 +189,8 @@
 				CD24FCDD1B32AB1000B1A29F /* QBVideoIndicatorView.m */,
 				CD618B961B395383004BDE3E /* SimpleCameraCell.h */,
 				CD618B971B395383004BDE3E /* SimpleCameraCell.m */,
-				CD618B9E1B39666B004BDE3E /* SimpleImagePreviewController.h */,
-				CD618B9F1B39666B004BDE3E /* SimpleImagePreviewController.m */,
+				CDE576141B3A504F000EF19C /* SimpleImagePreviewView.h */,
+				CDE576151B3A504F000EF19C /* SimpleImagePreviewView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 				TargetAttributes = {
 					CD24FCA41B3262F200B1A29F = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 553R85F56P;
 					};
 					CD24FCBD1B3262F200B1A29F = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -295,8 +301,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD618B981B395383004BDE3E /* SimpleCameraCell.m in Sources */,
+				CDE576161B3A504F000EF19C /* SimpleImagePreviewView.m in Sources */,
 				CD24FCB11B3262F200B1A29F /* ViewController.m in Sources */,
-				CD618BA01B39666B004BDE3E /* SimpleImagePreviewController.m in Sources */,
+				CDE576121B3A3ADE000EF19C /* SimpleImagePreviewController.m in Sources */,
 				CD24FCDE1B32AB1000B1A29F /* QBAlbumCell.m in Sources */,
 				CD24FCE11B32AB1000B1A29F /* QBVideoIconView.m in Sources */,
 				CD24FCE01B32AB1000B1A29F /* QBCheckmarkView.m in Sources */,
@@ -370,6 +377,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -395,6 +403,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -418,6 +427,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -436,6 +446,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -460,6 +471,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -488,6 +500,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleImagePickerDemo.app/SimpleImagePickerDemo";
 			};
@@ -511,6 +524,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -532,6 +546,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleImagePickerDemo.app/SimpleImagePickerDemo";
 				VALIDATE_PRODUCT = YES;
