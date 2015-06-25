@@ -79,7 +79,7 @@
     m_numLabel.textAlignment = NSTextAlignmentCenter;
     m_numLabel.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3f];
     m_numLabel.textColor = [UIColor whiteColor];
-    m_numLabel.text = [NSString stringWithFormat:@"1/%d",_selectedAssetURLs.count];
+    m_numLabel.text = [NSString stringWithFormat:@"1/%d",(int)_selectedAssetURLs.count];
     [self.view addSubview:m_numLabel];
     
     m_selectedView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width-30, 5, 25, 25)];
@@ -153,7 +153,7 @@
     if (!m_currentPreviewImageView) {
         return;
     }
-    m_numLabel.text = [NSString stringWithFormat:@"%d/%d",m_currentPreviewImageView.tag - PREVIEWIMAGEVIEWBASE,_selectedAssetURLs.count];
+    m_numLabel.text = [NSString stringWithFormat:@"%d/%d",(int)m_currentPreviewImageView.tag - PREVIEWIMAGEVIEWBASE,(int)_selectedAssetURLs.count];
 
     if ((m_selectedView.image && m_currentPreviewImageView.selected) ||(!m_selectedView.image && !m_currentPreviewImageView.selected))
     {

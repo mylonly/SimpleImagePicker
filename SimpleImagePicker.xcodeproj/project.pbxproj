@@ -13,21 +13,20 @@
 		CD24FCB61B3262F200B1A29F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD24FCB51B3262F200B1A29F /* Images.xcassets */; };
 		CD24FCB91B3262F200B1A29F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD24FCB71B3262F200B1A29F /* LaunchScreen.xib */; };
 		CD24FCC51B3262F200B1A29F /* SimpleImagePickerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCC41B3262F200B1A29F /* SimpleImagePickerDemoTests.m */; };
-		CD24FCD11B32678500B1A29F /* SimpleImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCD01B32678500B1A29F /* SimpleImagePickerController.m */; };
-		CD24FCDE1B32AB1000B1A29F /* QBAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCD51B32AB1000B1A29F /* QBAlbumCell.m */; };
-		CD24FCDF1B32AB1000B1A29F /* SimpleAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCD71B32AB1000B1A29F /* SimpleAssetCell.m */; };
-		CD24FCE01B32AB1000B1A29F /* QBCheckmarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCD91B32AB1000B1A29F /* QBCheckmarkView.m */; };
-		CD24FCE11B32AB1000B1A29F /* QBVideoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCDB1B32AB1000B1A29F /* QBVideoIconView.m */; };
-		CD24FCE21B32AB1000B1A29F /* QBVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24FCDD1B32AB1000B1A29F /* QBVideoIndicatorView.m */; };
-		CD24FCE41B33F14000B1A29F /* 添加拍照@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD24FCE31B33F14000B1A29F /* 添加拍照@2x.png */; };
-		CD618B981B395383004BDE3E /* SimpleCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD618B971B395383004BDE3E /* SimpleCameraCell.m */; };
-		CD618B9C1B3956DA004BDE3E /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD618B9B1B3956DA004BDE3E /* camera@2x.png */; };
-		CDABBC8D1B39080E00B78CFA /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDABBC8C1B39080E00B78CFA /* bg@2x.png */; };
-		CDABBC8F1B390A5200B78CFA /* down_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDABBC8E1B390A5200B78CFA /* down_arrow@2x.png */; };
-		CDABBC911B390D4700B78CFA /* up_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDABBC901B390D4700B78CFA /* up_arrow@2x.png */; };
-		CDABBC931B3933A500B78CFA /* selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDABBC921B3933A500B78CFA /* selected@2x.png */; };
-		CDE576121B3A3ADE000EF19C /* SimpleImagePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE576111B3A3ADE000EF19C /* SimpleImagePreviewController.m */; };
-		CDE576161B3A504F000EF19C /* SimpleImagePreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE576151B3A504F000EF19C /* SimpleImagePreviewView.m */; };
+		CDCDF7021B3C13360056D660 /* QBAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDF6EB1B3C13360056D660 /* QBAlbumCell.m */; };
+		CDCDF7031B3C13360056D660 /* QBCheckmarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDF6ED1B3C13360056D660 /* QBCheckmarkView.m */; };
+		CDCDF7041B3C13360056D660 /* QBVideoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDF6EF1B3C13360056D660 /* QBVideoIconView.m */; };
+		CDCDF7051B3C13360056D660 /* QBVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDF6F11B3C13360056D660 /* QBVideoIndicatorView.m */; };
+		CDCDF7061B3C13360056D660 /* SimpleAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDF6F31B3C13360056D660 /* SimpleAssetCell.m */; };
+		CDCDF7071B3C13360056D660 /* SimpleCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDF6F51B3C13360056D660 /* SimpleCameraCell.m */; };
+		CDCDF7081B3C13360056D660 /* SimpleImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDF6F71B3C13360056D660 /* SimpleImagePickerController.m */; };
+		CDCDF7091B3C13360056D660 /* SimpleImagePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDF6F91B3C13360056D660 /* SimpleImagePreviewController.m */; };
+		CDCDF70A1B3C13360056D660 /* SimpleImagePreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDF6FB1B3C13360056D660 /* SimpleImagePreviewView.m */; };
+		CDCDF70B1B3C13360056D660 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDCDF6FD1B3C13360056D660 /* bg@2x.png */; };
+		CDCDF70C1B3C13360056D660 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDCDF6FE1B3C13360056D660 /* camera@2x.png */; };
+		CDCDF70D1B3C13360056D660 /* down_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDCDF6FF1B3C13360056D660 /* down_arrow@2x.png */; };
+		CDCDF70E1B3C13360056D660 /* selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDCDF7001B3C13360056D660 /* selected@2x.png */; };
+		CDCDF70F1B3C13360056D660 /* up_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDCDF7011B3C13360056D660 /* up_arrow@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,30 +52,29 @@
 		CD24FCBE1B3262F200B1A29F /* SimpleImagePickerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleImagePickerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD24FCC31B3262F200B1A29F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD24FCC41B3262F200B1A29F /* SimpleImagePickerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleImagePickerDemoTests.m; sourceTree = "<group>"; };
-		CD24FCCF1B32678500B1A29F /* SimpleImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleImagePickerController.h; sourceTree = "<group>"; };
-		CD24FCD01B32678500B1A29F /* SimpleImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleImagePickerController.m; sourceTree = "<group>"; };
-		CD24FCD41B32AB1000B1A29F /* QBAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAlbumCell.h; sourceTree = "<group>"; };
-		CD24FCD51B32AB1000B1A29F /* QBAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAlbumCell.m; sourceTree = "<group>"; };
-		CD24FCD61B32AB1000B1A29F /* SimpleAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAssetCell.h; sourceTree = "<group>"; };
-		CD24FCD71B32AB1000B1A29F /* SimpleAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAssetCell.m; sourceTree = "<group>"; };
-		CD24FCD81B32AB1000B1A29F /* QBCheckmarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBCheckmarkView.h; sourceTree = "<group>"; };
-		CD24FCD91B32AB1000B1A29F /* QBCheckmarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBCheckmarkView.m; sourceTree = "<group>"; };
-		CD24FCDA1B32AB1000B1A29F /* QBVideoIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBVideoIconView.h; sourceTree = "<group>"; };
-		CD24FCDB1B32AB1000B1A29F /* QBVideoIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIconView.m; sourceTree = "<group>"; };
-		CD24FCDC1B32AB1000B1A29F /* QBVideoIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBVideoIndicatorView.h; sourceTree = "<group>"; };
-		CD24FCDD1B32AB1000B1A29F /* QBVideoIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIndicatorView.m; sourceTree = "<group>"; };
-		CD24FCE31B33F14000B1A29F /* 添加拍照@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加拍照@2x.png"; sourceTree = "<group>"; };
-		CD618B961B395383004BDE3E /* SimpleCameraCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleCameraCell.h; sourceTree = "<group>"; };
-		CD618B971B395383004BDE3E /* SimpleCameraCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleCameraCell.m; sourceTree = "<group>"; };
-		CD618B9B1B3956DA004BDE3E /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
-		CDABBC8C1B39080E00B78CFA /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
-		CDABBC8E1B390A5200B78CFA /* down_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_arrow@2x.png"; sourceTree = "<group>"; };
-		CDABBC901B390D4700B78CFA /* up_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up_arrow@2x.png"; sourceTree = "<group>"; };
-		CDABBC921B3933A500B78CFA /* selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selected@2x.png"; sourceTree = "<group>"; };
-		CDE576101B3A3ADE000EF19C /* SimpleImagePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleImagePreviewController.h; sourceTree = "<group>"; };
-		CDE576111B3A3ADE000EF19C /* SimpleImagePreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleImagePreviewController.m; sourceTree = "<group>"; };
-		CDE576141B3A504F000EF19C /* SimpleImagePreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleImagePreviewView.h; sourceTree = "<group>"; };
-		CDE576151B3A504F000EF19C /* SimpleImagePreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleImagePreviewView.m; sourceTree = "<group>"; };
+		CDCDF6EA1B3C13360056D660 /* QBAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAlbumCell.h; sourceTree = "<group>"; };
+		CDCDF6EB1B3C13360056D660 /* QBAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAlbumCell.m; sourceTree = "<group>"; };
+		CDCDF6EC1B3C13360056D660 /* QBCheckmarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBCheckmarkView.h; sourceTree = "<group>"; };
+		CDCDF6ED1B3C13360056D660 /* QBCheckmarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBCheckmarkView.m; sourceTree = "<group>"; };
+		CDCDF6EE1B3C13360056D660 /* QBVideoIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBVideoIconView.h; sourceTree = "<group>"; };
+		CDCDF6EF1B3C13360056D660 /* QBVideoIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIconView.m; sourceTree = "<group>"; };
+		CDCDF6F01B3C13360056D660 /* QBVideoIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBVideoIndicatorView.h; sourceTree = "<group>"; };
+		CDCDF6F11B3C13360056D660 /* QBVideoIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIndicatorView.m; sourceTree = "<group>"; };
+		CDCDF6F21B3C13360056D660 /* SimpleAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAssetCell.h; sourceTree = "<group>"; };
+		CDCDF6F31B3C13360056D660 /* SimpleAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAssetCell.m; sourceTree = "<group>"; };
+		CDCDF6F41B3C13360056D660 /* SimpleCameraCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleCameraCell.h; sourceTree = "<group>"; };
+		CDCDF6F51B3C13360056D660 /* SimpleCameraCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleCameraCell.m; sourceTree = "<group>"; };
+		CDCDF6F61B3C13360056D660 /* SimpleImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleImagePickerController.h; sourceTree = "<group>"; };
+		CDCDF6F71B3C13360056D660 /* SimpleImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleImagePickerController.m; sourceTree = "<group>"; };
+		CDCDF6F81B3C13360056D660 /* SimpleImagePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleImagePreviewController.h; sourceTree = "<group>"; };
+		CDCDF6F91B3C13360056D660 /* SimpleImagePreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleImagePreviewController.m; sourceTree = "<group>"; };
+		CDCDF6FA1B3C13360056D660 /* SimpleImagePreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleImagePreviewView.h; sourceTree = "<group>"; };
+		CDCDF6FB1B3C13360056D660 /* SimpleImagePreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleImagePreviewView.m; sourceTree = "<group>"; };
+		CDCDF6FD1B3C13360056D660 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		CDCDF6FE1B3C13360056D660 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
+		CDCDF6FF1B3C13360056D660 /* down_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_arrow@2x.png"; sourceTree = "<group>"; };
+		CDCDF7001B3C13360056D660 /* selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selected@2x.png"; sourceTree = "<group>"; };
+		CDCDF7011B3C13360056D660 /* up_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up_arrow@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +98,7 @@
 		CD24FC9A1B3262BE00B1A29F = {
 			isa = PBXGroup;
 			children = (
+				CDCDF6E81B3C13360056D660 /* SimpleImagePicker */,
 				CD24FCA71B3262F200B1A29F /* SimpleImagePickerDemo */,
 				CD24FCC11B3262F200B1A29F /* SimpleImagePickerDemoTests */,
 				CD24FCA61B3262F200B1A29F /* Products */,
@@ -118,10 +117,8 @@
 		CD24FCA71B3262F200B1A29F /* SimpleImagePickerDemo */ = {
 			isa = PBXGroup;
 			children = (
-				CD24FCCD1B32634B00B1A29F /* SimpleImagePicker */,
 				CD24FCAC1B3262F200B1A29F /* AppDelegate.h */,
 				CD24FCAD1B3262F200B1A29F /* AppDelegate.m */,
-				CD24FCE31B33F14000B1A29F /* 添加拍照@2x.png */,
 				CD24FCAF1B3262F200B1A29F /* ViewController.h */,
 				CD24FCB01B3262F200B1A29F /* ViewController.m */,
 				CD24FCB51B3262F200B1A29F /* Images.xcassets */,
@@ -157,42 +154,50 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CD24FCCD1B32634B00B1A29F /* SimpleImagePicker */ = {
+		CDCDF6E81B3C13360056D660 /* SimpleImagePicker */ = {
 			isa = PBXGroup;
 			children = (
-				CD24FCD31B32AB0300B1A29F /* Views */,
-				CD24FCCF1B32678500B1A29F /* SimpleImagePickerController.h */,
-				CD24FCD01B32678500B1A29F /* SimpleImagePickerController.m */,
-				CDE576101B3A3ADE000EF19C /* SimpleImagePreviewController.h */,
-				CDE576111B3A3ADE000EF19C /* SimpleImagePreviewController.m */,
+				CDCDF6E91B3C13360056D660 /* Classes */,
+				CDCDF6FC1B3C13360056D660 /* Resources */,
 			);
 			path = SimpleImagePicker;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
-		CD24FCD31B32AB0300B1A29F /* Views */ = {
+		CDCDF6E91B3C13360056D660 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CD618B9B1B3956DA004BDE3E /* camera@2x.png */,
-				CDABBC8E1B390A5200B78CFA /* down_arrow@2x.png */,
-				CDABBC901B390D4700B78CFA /* up_arrow@2x.png */,
-				CDABBC921B3933A500B78CFA /* selected@2x.png */,
-				CDABBC8C1B39080E00B78CFA /* bg@2x.png */,
-				CD24FCD41B32AB1000B1A29F /* QBAlbumCell.h */,
-				CD24FCD51B32AB1000B1A29F /* QBAlbumCell.m */,
-				CD24FCD61B32AB1000B1A29F /* SimpleAssetCell.h */,
-				CD24FCD71B32AB1000B1A29F /* SimpleAssetCell.m */,
-				CD24FCD81B32AB1000B1A29F /* QBCheckmarkView.h */,
-				CD24FCD91B32AB1000B1A29F /* QBCheckmarkView.m */,
-				CD24FCDA1B32AB1000B1A29F /* QBVideoIconView.h */,
-				CD24FCDB1B32AB1000B1A29F /* QBVideoIconView.m */,
-				CD24FCDC1B32AB1000B1A29F /* QBVideoIndicatorView.h */,
-				CD24FCDD1B32AB1000B1A29F /* QBVideoIndicatorView.m */,
-				CD618B961B395383004BDE3E /* SimpleCameraCell.h */,
-				CD618B971B395383004BDE3E /* SimpleCameraCell.m */,
-				CDE576141B3A504F000EF19C /* SimpleImagePreviewView.h */,
-				CDE576151B3A504F000EF19C /* SimpleImagePreviewView.m */,
+				CDCDF6EA1B3C13360056D660 /* QBAlbumCell.h */,
+				CDCDF6EB1B3C13360056D660 /* QBAlbumCell.m */,
+				CDCDF6EC1B3C13360056D660 /* QBCheckmarkView.h */,
+				CDCDF6ED1B3C13360056D660 /* QBCheckmarkView.m */,
+				CDCDF6EE1B3C13360056D660 /* QBVideoIconView.h */,
+				CDCDF6EF1B3C13360056D660 /* QBVideoIconView.m */,
+				CDCDF6F01B3C13360056D660 /* QBVideoIndicatorView.h */,
+				CDCDF6F11B3C13360056D660 /* QBVideoIndicatorView.m */,
+				CDCDF6F21B3C13360056D660 /* SimpleAssetCell.h */,
+				CDCDF6F31B3C13360056D660 /* SimpleAssetCell.m */,
+				CDCDF6F41B3C13360056D660 /* SimpleCameraCell.h */,
+				CDCDF6F51B3C13360056D660 /* SimpleCameraCell.m */,
+				CDCDF6F61B3C13360056D660 /* SimpleImagePickerController.h */,
+				CDCDF6F71B3C13360056D660 /* SimpleImagePickerController.m */,
+				CDCDF6F81B3C13360056D660 /* SimpleImagePreviewController.h */,
+				CDCDF6F91B3C13360056D660 /* SimpleImagePreviewController.m */,
+				CDCDF6FA1B3C13360056D660 /* SimpleImagePreviewView.h */,
+				CDCDF6FB1B3C13360056D660 /* SimpleImagePreviewView.m */,
 			);
-			path = Views;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		CDCDF6FC1B3C13360056D660 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CDCDF6FD1B3C13360056D660 /* bg@2x.png */,
+				CDCDF6FE1B3C13360056D660 /* camera@2x.png */,
+				CDCDF6FF1B3C13360056D660 /* down_arrow@2x.png */,
+				CDCDF7001B3C13360056D660 /* selected@2x.png */,
+				CDCDF7011B3C13360056D660 /* up_arrow@2x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,14 +280,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDABBC8F1B390A5200B78CFA /* down_arrow@2x.png in Resources */,
-				CDABBC911B390D4700B78CFA /* up_arrow@2x.png in Resources */,
-				CD24FCE41B33F14000B1A29F /* 添加拍照@2x.png in Resources */,
-				CD618B9C1B3956DA004BDE3E /* camera@2x.png in Resources */,
-				CDABBC931B3933A500B78CFA /* selected@2x.png in Resources */,
+				CDCDF70B1B3C13360056D660 /* bg@2x.png in Resources */,
 				CD24FCB91B3262F200B1A29F /* LaunchScreen.xib in Resources */,
-				CDABBC8D1B39080E00B78CFA /* bg@2x.png in Resources */,
+				CDCDF70F1B3C13360056D660 /* up_arrow@2x.png in Resources */,
 				CD24FCB61B3262F200B1A29F /* Images.xcassets in Resources */,
+				CDCDF70E1B3C13360056D660 /* selected@2x.png in Resources */,
+				CDCDF70C1B3C13360056D660 /* camera@2x.png in Resources */,
+				CDCDF70D1B3C13360056D660 /* down_arrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,18 +304,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD618B981B395383004BDE3E /* SimpleCameraCell.m in Sources */,
-				CDE576161B3A504F000EF19C /* SimpleImagePreviewView.m in Sources */,
+				CDCDF7021B3C13360056D660 /* QBAlbumCell.m in Sources */,
+				CDCDF70A1B3C13360056D660 /* SimpleImagePreviewView.m in Sources */,
 				CD24FCB11B3262F200B1A29F /* ViewController.m in Sources */,
-				CDE576121B3A3ADE000EF19C /* SimpleImagePreviewController.m in Sources */,
-				CD24FCDE1B32AB1000B1A29F /* QBAlbumCell.m in Sources */,
-				CD24FCE11B32AB1000B1A29F /* QBVideoIconView.m in Sources */,
-				CD24FCE01B32AB1000B1A29F /* QBCheckmarkView.m in Sources */,
+				CDCDF7091B3C13360056D660 /* SimpleImagePreviewController.m in Sources */,
+				CDCDF7041B3C13360056D660 /* QBVideoIconView.m in Sources */,
+				CDCDF7051B3C13360056D660 /* QBVideoIndicatorView.m in Sources */,
 				CD24FCAE1B3262F200B1A29F /* AppDelegate.m in Sources */,
-				CD24FCDF1B32AB1000B1A29F /* SimpleAssetCell.m in Sources */,
+				CDCDF7031B3C13360056D660 /* QBCheckmarkView.m in Sources */,
+				CDCDF7061B3C13360056D660 /* SimpleAssetCell.m in Sources */,
 				CD24FCAB1B3262F200B1A29F /* main.m in Sources */,
-				CD24FCE21B32AB1000B1A29F /* QBVideoIndicatorView.m in Sources */,
-				CD24FCD11B32678500B1A29F /* SimpleImagePickerController.m in Sources */,
+				CDCDF7071B3C13360056D660 /* SimpleCameraCell.m in Sources */,
+				CDCDF7081B3C13360056D660 /* SimpleImagePickerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

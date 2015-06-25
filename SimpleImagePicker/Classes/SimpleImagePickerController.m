@@ -270,7 +270,7 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
     {
         m_doneBtn.enabled = YES;
         m_previewBtn.enabled = YES;
-        NSString* previewTitle = [NSString stringWithFormat:@"预览(%ld)",_selectedAssetURLs.count];
+        NSString* previewTitle = [NSString stringWithFormat:@"预览(%d)",(int)_selectedAssetURLs.count];
         CGSize titleSize = [previewTitle sizeWithFont:m_previewBtn.titleLabel.font constrainedToSize:CGSizeMake(MAXFLOAT, m_previewBtn.bounds.size.height)];
         if (titleSize.width < 60)
         {
