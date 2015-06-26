@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SimpleImagePicker"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.summary          = "Easy Multi-Select ImagePicker"
   s.description      = <<-DESC
                        Easy Multi-Select ImagePicker, which implement by Objective-C.
@@ -23,4 +23,6 @@ Pod::Spec.new do |s|
   # s.osx.exclude_files = 'Classes/ios'
   # s.public_header_files = 'Classes/**/*.h'
   s.frameworks = 'Foundation', 'CoreGraphics', 'UIKit','AssetsLibrary'
+  s.dependency  'MBProgressHUD', '~> 0.9.1'
+  s.dependency  'MBProgressHUDExtensions@donly', '~> 0.3'
 end

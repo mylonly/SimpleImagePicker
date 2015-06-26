@@ -42,7 +42,6 @@
         
         UITapGestureRecognizer* tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)];
         [self addGestureRecognizer:tapGestureRecognizer];
-        
         oldFrame = self.frame;
     }
     return self;
@@ -73,7 +72,6 @@
             } completion:^(BOOL finished) {
                 self.transform = CGAffineTransformMakeRotation(0);
             }];
-
         }
     }
 }

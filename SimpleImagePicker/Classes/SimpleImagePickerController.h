@@ -41,6 +41,7 @@ typedef NS_ENUM(NSUInteger, SimpleImagePickerControllerFilterType)
 @property (nonatomic,assign) SimpleImagePickerControllerFilterType filterType;
 
 @property (nonatomic,strong) NSMutableOrderedSet *selectedAssetURLs;
+@property (nonatomic,strong) NSMutableOrderedSet *selectedCacheURLs;
 @property (nonatomic,strong) UIColor* baseColor;
 
 @property (nonatomic, assign) NSUInteger minimumNumberOfSelection;

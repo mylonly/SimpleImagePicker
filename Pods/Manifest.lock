@@ -1,0 +1,14 @@
+PODS:
+  - MBProgressHUD (0.9.1)
+  - MBProgressHUDExtensions@donly (0.3):
+    - MBProgressHUD (~> 0.9.1)
+
+DEPENDENCIES:
+  - MBProgressHUD (~> 0.9.1)
+  - MBProgressHUDExtensions@donly (~> 0.3)
+
+SPEC CHECKSUMS:
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  MBProgressHUDExtensions@donly: 9b692655484251819c6f3ce5a9e9b2538eac7bf4
+
+COCOAPODS: 0.37.2

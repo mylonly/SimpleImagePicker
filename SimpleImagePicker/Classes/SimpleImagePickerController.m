@@ -10,6 +10,7 @@
 #import "SimpleAssetCell.h"
 #import "SimpleCameraCell.h"
 #import "SimpleImagePreviewController.h"
+#import <UIViewController+MBProgressHUD.h>
 
 #ifndef SCREENWIDTH
 #define SCREENWIDTH  [[UIScreen mainScreen] bounds].size.width
@@ -25,6 +26,10 @@
 
 #ifndef SCREENHEIGHT
 #define SCREENHEIGHT [[UIScreen mainScreen] bounds].size.height
+#endif
+
+#ifndef DOCUMENTS_DIR
+#define DOCUMENTS_DIR     [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
 #endif
 
 
@@ -47,6 +52,7 @@
     UIButton* m_doneBtn;
     UIButton* m_previewBtn;
     UITableView* m_tableView;
+    
 }
 @end
 
@@ -81,6 +87,7 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
         self.baseColor = [UIColor colorWithRed:0 green:202 blue:223 alpha:1];
         m_assetsLibrary = [ALAssetsLibrary new];
         _selectedAssetURLs = [NSMutableOrderedSet orderedSet];
+        _selectedCacheURLs = [NSMutableOrderedSet orderedSet];
         self.collectionView.allowsMultipleSelection = YES;
     }
     return self;
@@ -186,7 +193,8 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
         originBtn.titleLabel.font = [UIFont systemFontOfSize:14];
         [originBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [originBtn setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
-        [m_footerView addSubview:originBtn];
+        [originBtn addTarget:self action:@selector(originImageAction:) forControlEvents:UIControlEventTouchUpInside];
+        //[m_footerView addSubview:originBtn];
         
         m_previewBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREENWIDTH-70, 7.5, 60, 25)];
         m_previewBtn.layer.cornerRadius = 2.f;
@@ -250,9 +258,16 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
 {
     if ([_delegate respondsToSelector:@selector(simpleImagePickerController:didSelectAssets:)])
     {
+        
         [_delegate simpleImagePickerController:self didSelectAssets:_selectedAssetURLs.array];
     }
     [self cancelAction];
+}
+
+
+- (void)originImageAction:(UIButton*)sender
+{
+    sender.selected = !sender.selected;
 }
 
 - (void)previewAction:(UIButton*)sender
@@ -609,7 +624,15 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return !(_selectedAssetURLs.count == self.maximumNumberOfSelection);
+    if(_selectedAssetURLs.count >= self.maximumNumberOfSelection)
+    {
+        [self showHintHudWithMessage:[NSString stringWithFormat:@"最多只能选择%d张",(int)self.maximumNumberOfSelection]];
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
 }
 
 
