@@ -274,7 +274,6 @@
 				TargetAttributes = {
 					CD24FCA41B3262F200B1A29F = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 553R85F56P;
 					};
 					CD24FCBD1B3262F200B1A29F = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -295,8 +294,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CD24FCA41B3262F200B1A29F /* SimpleImagePickerDemo */,
 				CD24FCBD1B3262F200B1A29F /* SimpleImagePickerDemoTests */,
+				CD24FCA41B3262F200B1A29F /* SimpleImagePickerDemo */,
 			);
 		};
 /* End PBXProject section */
