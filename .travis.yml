@@ -1,3 +1,5 @@
 language: objective-c
 xcode_workspace: SimpleImagePicker.xcworkspace
 xcode_scheme: SimpleImagePickerDemo
+xcode_sdk: iphonesimulator8.1
+script: xctool -workspace [SimpleImagePicker.xcworkspace] -scheme [SimpleImagePickerDemo] build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
